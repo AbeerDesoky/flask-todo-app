@@ -1,0 +1,13 @@
+versions: 2.1
+
+orbs: 
+  aws-ecr: circleci/aws-ecr@8.1.2
+
+workflos:  
+
+   jobs:
+  
+      - aws-ecr/build-and-push-image:
+      
+           -repo: to_do_app
+           -tag: "latest,${CIRCLE_BUILD_NUM}"

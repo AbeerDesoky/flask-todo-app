@@ -10,7 +10,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:////" + DATABASE
 
 # to connect the app to RDS server
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://{user}:{password}@{rds-url}:{port}/{db-name}'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://admin:admin1234@to-do-database.cii03v0iii2v.us-east-1.rds.amazonaws.com:3306/to-do-database'
 db = SQLAlchemy(app)
 
 
