@@ -12,7 +12,7 @@ workflows:
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           region: AWS_REGION
           registry-id: AWS_ECR_REGISTRY_ID
-          account-url: 859871421920.dkr.ecr.us-east-1.amazonaws.com
+          account-url: "859871421920.dkr.ecr.us-east-1.amazonaws.com"
           dockerfile: Dockerfile
           path: .
           repo: "to-do-project"
