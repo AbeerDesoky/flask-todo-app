@@ -12,8 +12,9 @@ workflows:
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           region: AWS_REGION
           registry-id: AWS_ECR_REGISTRY_ID
-          #account-url: AWS_ECR_ACCOUNT_URL
+          account-url: AWS_ECR_ACCOUNT_URL
           dockerfile: Dockerfile
+          path: .
           repo: "to-do-project"
           tag: 'latest,$(CIRCLE_BUILD_NUM)'
 
