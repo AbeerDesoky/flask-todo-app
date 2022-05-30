@@ -2,17 +2,18 @@ version: 2.1
 
 orbs:
   aws-ecr: circleci/aws-ecr@8.1.2
-  aws-ecs: circleci/aws-ecs@02.2.1
+
 
 workflows:
   build-and-deploy:
     jobs:
       - aws-ecr/build-and-push-image:
-          repo: "public.ecr.aws/b6w0e2d6/to-do-project"
-          tag: "latest,${CIRCLE_BUILD_NUM}"
-      - aws-ecs/deploy-service-update:
-          requires:
-            - aws-ecr/build-and-push-image # only run this job once aws-ecr/build-and-push-image has completed
-          family: "${public.ecr.aws/b6w0e2d6/to-do-project}-service"
-          cluster-name: "${public.ecr.aws/b6w0e2d6/to-do-project}-cluster"
-          container-image-name-updates: "container=${public.ecr.aws/b6w0e2d6/to-do-project}-service,tag=${CIRCLE_SHA1}"
+          aws-access-key-id: ${AWS_ACCESS_KEY_ID}
+          aws-secret-access-key: ${AWS_SECRET_ACCESS_KEY}
+          region: ${AWS_REGION}
+          registry-id: ${AWS_ECR_REGISTRY_ID}
+          account-url: ${AWS_ECR_ACCOUNT_URL}
+          dockerfile: Dockerfile
+          repo: "to-do-project"
+          tag: 'latest,$(CIRCLE_BUILD_NUM)'
+
